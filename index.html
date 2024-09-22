@@ -66,9 +66,14 @@
 
     function handleClick() {
         clickCount++;
-        if (clickCount >= 3) {
+        if (clickCount < 3) {
+            console.log('Klik ke-' + clickCount);
+        } else if (clickCount === 3) {
             // Tampilkan pesan setelah 3 kali klik
             document.getElementById('message').style.display = 'block';
+        } else {
+            // Pada klik ke-4, arahkan ke halaman berikutnya
+            window.location.href = 'page2.html';
         }
     }
 
