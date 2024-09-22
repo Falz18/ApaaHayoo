@@ -32,6 +32,12 @@
             max-width: 300px;
             margin-bottom: 20px;
         }
+        #message {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #ff4081;
+            display: none; /* Awalnya disembunyikan */
+        }
 
         /* Media queries untuk mobile */
         @media (max-width: 600px) {
@@ -50,11 +56,22 @@
 <div class="container">
     <img src="https://i.pinimg.com/originals/89/67/20/89672010a3e1f0e6770f463e97bcd797.gif" alt="Cute Gif">
     <h2>Bagaimana sayang, apakah kamu sudah dapat jawabannya?</h2>
-    <button id="sudah" onclick="window.location.href='page2.html'">Sudah</button>
+    <button id="sudah" onclick="handleClick()">Sudah</button>
     <button id="belum" onmouseover="moveButton()">Belum</button>
+    <div id="message">Semangat dong sayaaangg!</div>
 </div>
 
 <script>
+    let clickCount = 0;
+
+    function handleClick() {
+        clickCount++;
+        if (clickCount >= 3) {
+            // Tampilkan pesan setelah 3 kali klik
+            document.getElementById('message').style.display = 'block';
+        }
+    }
+
     function moveButton() {
         const button = document.getElementById('belum');
         const x = Math.random() * (window.innerWidth - button.offsetWidth);
